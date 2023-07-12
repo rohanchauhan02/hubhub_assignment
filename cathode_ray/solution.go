@@ -17,7 +17,7 @@ func CalculateSignalStrength(instructions []string) int {
 		parts := strings.Split(instruction, " ")
 		operation := parts[0]
 		if cycle == 20 || cycle == 60 || cycle == 100 || cycle == 140 || cycle == 180 || cycle == 220 {
-			fmt.Printf("Cycle1: %v, X: %v \n", cycle, X)
+			// fmt.Printf("Cycle1: %v, X: %v \n", cycle, X)
 			signalStrength += cycle * X
 		}
 		if operation == "addx" {
@@ -28,11 +28,11 @@ func CalculateSignalStrength(instructions []string) int {
 			X += value
 			cycle++
 			if cycle == 20 || cycle == 60 || cycle == 100 || cycle == 140 || cycle == 180 || cycle == 220 {
-				fmt.Printf("Cycle2: %v, X: %v \n", cycle, X)
+				// fmt.Printf("Cycle2: %v, X: %v \n", cycle, X)
 				signalStrength += cycle * X
 			}
 		}
-		
+
 	}
 	return signalStrength
 }

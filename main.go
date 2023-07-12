@@ -4,10 +4,16 @@ import (
 	"fmt"
 	"strings"
 
+	bolingboulders "github.com/rohanchauhan02/huhhub_assignment/boling_boulders"
 	cathoderay "github.com/rohanchauhan02/huhhub_assignment/cathode_ray"
 )
 
 func main() {
+	cathode_ray_solution()
+	boiling_boulders_solution()
+}
+
+func cathode_ray_solution() {
 	input := `addx 15
 addx -11
 addx 6
@@ -157,4 +163,31 @@ noop`
 	instructions := strings.Split(input, "\n")
 	signalStrength := cathoderay.CalculateSignalStrength(instructions)
 	fmt.Printf("Signal strenth: %v \n", signalStrength)
+}
+
+func boiling_boulders_solution() {
+	input := `2,2,2
+1,2,2
+3,2,2
+2,1,2
+2,3,2
+2,2,1
+2,2,3
+2,2,4
+2,2,6
+1,2,5
+3,2,5
+2,1,5
+2,3,5`
+
+	var cubes []bolingboulders.Cube
+	lines := strings.Split(input, "\n")
+	for _, line := range lines {
+		var cube bolingboulders.Cube
+		fmt.Sscanf(line, "%d,%d,%d", &cube.X, &cube.Y, &cube.Z)
+		cubes = append(cubes, cube)
+	}
+	surfaceArea := bolingboulders.CalculateSurfaceArea(cubes)
+	fmt.Printf("Surface Area: %d \n", surfaceArea)
+
 }
